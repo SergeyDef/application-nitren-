@@ -1,0 +1,29 @@
+.myFriend{
+	display: flex;
+	width: 90%;
+	margin: 2% auto;
+	background-color: #d4e6a8;
+}
+.myFriend_ava{
+	width: 15%;
+}
+.myFriend_ava_img{
+	width: 100%;
+	height: 100px;
+	margin: auto;
+}
+.myFriend_info{
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+}
+.myFriend_info_indicator{
+	text-align: right;
+}
+.myFriend_info_name{
+	font-size: 1.5rem;
+	color: #00005c;
+	font-weight: bold;
+	width: 90%;
+	margin: 0 auto;
+}

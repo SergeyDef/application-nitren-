@@ -1,0 +1,21 @@
+.subscribers{
+  display: flex;
+  width: 90%;
+  margin: auto;
+  background-color: #fFfff7;
+}
+.subscribers_form{
+	flex-grow: 1;
+}
+.buttons{
+	flex-grow: 0;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #000000;
+    width: 10%;
+    height: 35px;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}

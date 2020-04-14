@@ -1,0 +1,16 @@
+.interests{
+	display: flex;
+	flex-direction: column;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #000000;
+    width: 20%;
+    height: 35px;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}

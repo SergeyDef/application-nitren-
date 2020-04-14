@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Route} from 'react-router-dom';
+import HeaderContainer from './CoreComponents/Header/HeaderContainer';
+import Nav from './CoreComponents/Nav/Nav';
+import PhotoPost from './CoreComponents/PhotoPost/PhotoPost';
+import Futer from './CoreComponents/Futer/Futer';
+import DialogsContainer from './CoreComponents/Dialogs/DialogsContainer';
+import LibraryContainer from './CoreComponents/Library/LibraryContainer';
+import Music from './CoreComponents/Music/Music';
+import InterestsContainer from './CoreComponents/Interests/InterestsContainer';
+import UserProfileContainer from './CoreComponents/UserProfile/UserProfileContainer';
+import SubscribersContainer from './CoreComponents/Subscribers/SubscribersContainer';
 import './App.css';
 
-function App() {
+
+const App = (props) =>{
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div className="app-wrapper">
+        <HeaderContainer />
+        <Nav />
+        <div className='app-wrapper-content'>
+          <Route path='/userProfile'
+            render={ () => <UserProfileContainer/>} />
+          <Route path='/library' 
+            render={ () => <LibraryContainer />}
+          />
+          <Route path='/interests' 
+            render={ () => <InterestsContainer />}
+          />
+          <Route path='/music' 
+            render={ () => <Music />}
+          />
+        	<Route path='/dialogs' 
+            render={ () => <DialogsContainer />} />
+          <Route path='/photoPost' 
+            render={ () => <PhotoPost/>} />
+          
+          <Route path='/subscribers' 
+            render={ () => <SubscribersContainer />} />
+        </div>
+        <Futer />
+      </div>
+    );
 }
 
 export default App;

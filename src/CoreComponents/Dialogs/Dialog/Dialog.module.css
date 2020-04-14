@@ -1,0 +1,12 @@
+.dialogs{
+	display: grid;
+	grid-template-columns: 2fr 10fr;
+	padding: 5px;
+	background-color: #fafafa;
+}
+.dialogs__all{
+	background-color: #eeeeee;
+}
+.dialog__all_img>img{
+ width: 60px;
+}

@@ -1,0 +1,34 @@
+
+.userAvatar{
+	display: flex;
+	flex-direction: row; 
+}
+.publicationForm{
+	width: 80%;
+	border-radius: 8px;
+	resize: none;
+	color: #000;
+	background-color: #fff;
+    outline: none;
+}
+.publicationForm:focus{
+	background: #ffe;
+
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #000000;
+    width: 20%;
+    height: 35px;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+.userPost{
+    display: flex;
+    flex-direction: column-reverse;
+    order: 4321;
+}

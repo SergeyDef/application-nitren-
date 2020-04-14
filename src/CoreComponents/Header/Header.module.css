@@ -1,0 +1,26 @@
+.Header{
+  grid-area: h;
+  display: flex;
+  justify-content: space-between;
+  background-color: #3498db;
+  color: #ffffff;
+}
+.menu_item{
+	width: 90%;
+}
+.menu_item li{
+  display: inline;
+  padding: 0 10px;
+}
+.a_item>a{
+  color: #ffffff;
+}
+.logotype{
+	width: 5%;
+	height: 5%;
+	margin: 1%;
+}
+.logotype_img{
+	width: 100%;
+	height: auto;
+}

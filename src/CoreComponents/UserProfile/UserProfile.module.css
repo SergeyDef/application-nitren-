@@ -1,0 +1,10 @@
+.user_page{
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+.userFriendAwa{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+}

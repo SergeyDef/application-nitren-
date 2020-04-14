@@ -1,0 +1,4 @@
+.user_friend{
+	display: flex;
+	flex-direction: row;
+}

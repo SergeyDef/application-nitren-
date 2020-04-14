@@ -1,0 +1,25 @@
+.message{
+	background-color: #ffedcc;
+	width: 90%;
+	margin: 20px auto;
+}
+.message__user{
+	display: flex;
+	padding: 15px;
+}
+.message__user_img img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.dialogs__window{
+	margin: 0 2%;
+	background-color: #eeeeee;
+}
+.massage__user_name{
+	padding: 15px;
+}
+.massage__user_name_span{
+	display: block;
+}

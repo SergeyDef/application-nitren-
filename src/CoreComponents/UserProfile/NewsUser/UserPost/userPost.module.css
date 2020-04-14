@@ -1,0 +1,19 @@
+.user_post{
+	margin: 2% 0;
+	opacity: 0.8;
+	padding: 10px;
+	border-right: 1px solid #2a2f33;
+	background-color: #ffdb99;
+}
+.user_post_date{
+	width: 100px;
+	margin-left: 90%;
+	color: #fff;
+	padding: 3px 5px;
+	font-size: 0.9rem;
+	background-color: #f2b33d;
+}
+.user_post_text{
+	padding: 0 10px;
+	display: block;
+}

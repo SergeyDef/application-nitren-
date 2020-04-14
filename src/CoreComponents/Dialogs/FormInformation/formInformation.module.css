@@ -1,0 +1,23 @@
+.publication{
+    display: flex;
+}
+.publication_form{
+	width: 80%;
+	border-radius: 8px;
+	resize: none;
+	color: #000;
+	background-color: #fff;
+    outline: none;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #000000;
+    width: 20%;
+    height: 35px;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}

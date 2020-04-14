@@ -1,0 +1,33 @@
+.Form{
+  grid-area: f;
+  width: 300px;
+  height: 400px;
+  background-color: #fffafa;
+  box-shadow: 0 0 5px 2px;
+}
+/* buttons */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #000000;
+    width: 200px;
+    height: 35px;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.tips{
+  font-family: 'Viga', sans-serif;
+}
+.input_list{
+  font-family: 'Concert One', cursive;
+}
+.input_field{
+  width: 250px;
+  height: 35px;
+  margin: auto;
+  display: block;
+  border-radius: 3px;
+}
