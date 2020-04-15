@@ -3,9 +3,9 @@ const NEW_COMMENTS_PHOTO = 'NEW-COMMENTS-PHOTO';
 
 let initialState = {
   comments: [
-        {id: 1, message: 'stretch', name:"Батько", surname:"Мохно", imgAva:'http://img1.joyreactor.cc/pics/post/art-%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B0-%D0%B7%D0%BE%D0%BC%D0%B1%D0%B8-zombie-243857.jpeg'},
-        {id: 2, message: 'start', name:"Дять", surname:"Лёша", imgAva:'http://satellitesoda.com/assets/images/ddf/2014/og_3480-goblin-3-by-_olson_.jpg'},
-        {id: 3, message: 'end', name:"Катя", surname:"Razvrat", imgAva:'https://wallpaperscave.ru/images/original/18/06-16/dark-zombie-58385.jpg'}
+        {id: 1, message: 'stretch', name:"Батько", surname:"Мохно", imgAva:'https://avatars.mds.yandex.net/get-pdb/1946731/81562de2-d8e2-45a9-894b-f4caa981d434/s1200?webp=false'},
+        {id: 2, message: 'start', name:"Дять", surname:"Лёша", imgAva:'https://avatars.mds.yandex.net/get-pdb/2475436/449abc78-8799-4898-8e52-69d5315e76b2/s1200?webp=false'},
+        {id: 3, message: 'end', name:"Катя", surname:"Razvrat", imgAva:'https://yt3.ggpht.com/a/AATXAJwmWDF6Sx3MHL6ZC4L58Nb3cUyZvhh1zKg3iQ=s900-c-k-c0xffffffff-no-rj-mo'}
       ],
       newCommentText: 'leave a comment'
 }

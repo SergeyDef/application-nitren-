@@ -56,12 +56,22 @@ let Library = (props) => {
 	        </ div>
 	        { 
 	        	props.information === null ? console.log("there was no request") :
-	        	props.informationBoo.map(i => <div className={s.information_window} >
-	        		<h4 className={s.information_window_title}>information about the book</h4>
-		        	<span className={s.information_window_line}>{"id:" + " " + i.id}</span>
-		        	<span className={s.information_window_line}>{"book title:" + " " + i.nameBook}</span>
-		        	<span className={s.information_window_line}>{"workbook author:" + " " + i.author}</span>
-		        	<span className={s.information_window_line}>{"date added:" + " " + i.uploadDate}</span>
+	        	props.informationBoo.map(i => <div className={s.information_window_container}>
+	        		<span onClick={props.removalInformation} className={s.information_window_close}>x</span>
+		        	<div className={s.information_window} >
+		        		<h4 className={s.information_window_title}>information about the book</h4>
+		        		<div className={s.information_window_info}>
+			        		<div className={s.information_window_img_Container}>
+			        			<img src={i.imgBook} className={s.information_window_img}/>
+			        		</div>
+			        		<div className={s.information_window_line_Container}>
+					        	<span className={s.information_window_line}>{"id:" + " " + i.id}</span>
+					        	<span className={s.information_window_line}>{"book:" + " " + i.nameBook}</span>
+					        	<span className={s.information_window_line}>{"author:" + " " + i.author}</span>
+					        	<span className={s.information_window_line}>{"date added:" + " " + i.uploadDate}</span>
+				        	</div>
+			        	</div>
+					</div>
 				</div>)
 	        }
 	      	</div>

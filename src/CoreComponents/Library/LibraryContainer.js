@@ -1,7 +1,7 @@
 import React from 'react';
 import Library from './Library';
 import {connect} from 'react-redux';
-import {setBook, showInformation, searchBook, textChenge, searchOption} from '../../state/libraryReducer';
+import {setBook, showInformation, searchBook, textChenge, searchOption, removalInformation} from '../../state/libraryReducer';
 import * as axios from 'axios';
 
 class LibraryAPI extends React.Component {
@@ -22,6 +22,7 @@ class LibraryAPI extends React.Component {
 		 information={this.props.information}
 		 informationBoo={this.props.informationBoo}
 		 searchOptions={this.props.searchOptions}
+		 removalInformation={this.props.removalInformation}
 		  />
 	}
 }
@@ -50,6 +51,9 @@ let mapDispatchToProps = (dispatch) =>{
 		searchBooks: () => {
 			dispatch(searchBook());
 		},
+		removalInformation: () => {
+			dispatch(removalInformation());
+		}
 
 	}
 }

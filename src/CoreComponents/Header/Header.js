@@ -4,7 +4,6 @@ import {NavLink} from 'react-router-dom';
 import logo from '../../assec/img/logo.png';
 
 const Header = (props) =>{
-  debugger;
   return (
       <div className={s.Header}>
         <div className="">

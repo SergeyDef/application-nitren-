@@ -10,8 +10,10 @@ class SubscribersAPI extends React.Component {
 	
 	componentDidMount(){
 		this.props.toggoleIsFetching(true);
-		axios.get("https://raw.githubusercontent.com/SergeyDef/nitrenJSON-/master/users.json").then(response =>{
-				console.log(response.data.items);
+		axios.get("https://social-network.samuraijs.com/api/1.0/users", {
+			withCredentials: true
+		})
+		.then(response =>{
 				this.props.setFriend(response.data.items);
 			});
 		this.props.toggoleIsFetching(false);
@@ -19,9 +21,10 @@ class SubscribersAPI extends React.Component {
 	onPageChanged = (pageNumber) =>{
 		this.props.setCurrentPage(pageNumber);
 		this.props.toggoleIsFetching(true);
-		axios.get(`https://raw.githubusercontent.com/SergeyDef/nitrenJSON-/master/users.json?page=${pageNumber}&count=${this.props.pageSize}`)
+		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
+			withCredentials: true
+		})
 			.then(response =>{
-				console.log(response.data.items);
 				this.props.setFriend(response.data.items);
 			});
 		this.props.toggoleIsFetching(false);
