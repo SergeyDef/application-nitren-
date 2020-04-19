@@ -1,7 +1,14 @@
 import React from 'react';
 import Library from './Library';
 import {connect} from 'react-redux';
-import {setBook, showInformation, searchBook, textChenge, searchOption, removalInformation} from '../../state/libraryReducer';
+import {setBook, 
+	showInformation, 
+	searchBook, 
+	textChenge, 
+	searchOption, 
+	removalInformation,
+	libraryUpdate,
+    librarySearchIndicator} from '../../state/libraryReducer';
 import * as axios from 'axios';
 
 class LibraryAPI extends React.Component {
@@ -10,6 +17,13 @@ class LibraryAPI extends React.Component {
 		axios.get("https://raw.githubusercontent.com/SergeyDef/nitrenJSON-/master/books.json")
 		.then(response =>{
 			this.props.setBooks(response.data.items);
+		});
+	}
+
+	libraryUpdateFan = () => {
+		axios.get("https://raw.githubusercontent.com/SergeyDef/nitrenJSON-/master/books.json")
+		.then(response =>{
+			this.props.libraryUpdates(response.data.items);
 		});
 	}
 
@@ -23,6 +37,10 @@ class LibraryAPI extends React.Component {
 		 informationBoo={this.props.informationBoo}
 		 searchOptions={this.props.searchOptions}
 		 removalInformation={this.props.removalInformation}
+		 componentDidMount={this.props.componentDidMount}
+		 libraryUpdateFan={this.libraryUpdateFan}
+		 libraryIndicator={this.props.libraryIndicator}
+		 librarySearchIndicator={this.props.librarySearchIndicator}
 		  />
 	}
 }
@@ -31,7 +49,8 @@ let mapStateToProps = (state) =>{
 	return {
 		bookCoverLibrarys: state.library.bookCoverLibrary,
 		informationBoo: state.library.informationBoo,
-		searchText: state.library.searchText
+		searchText: state.library.searchText,
+		libraryIndicator: state.library.libraryIndicator
 	}
 }
 let mapDispatchToProps = (dispatch) =>{
@@ -53,8 +72,13 @@ let mapDispatchToProps = (dispatch) =>{
 		},
 		removalInformation: () => {
 			dispatch(removalInformation());
+		},
+		libraryUpdates: (book) => {
+			dispatch(libraryUpdate(book));
+		},
+		librarySearchIndicator: () => {
+			dispatch(librarySearchIndicator())
 		}
-
 	}
 }
 

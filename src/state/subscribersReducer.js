@@ -4,11 +4,12 @@ const NOT_FRIENDS = 'NOT-FRIENDS';
 const SET_FRIENDS = 'SET-FRIENDS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const TOGGOLE_IS_FETCHING = 'TOGGOLE-IS-FETCHING';
+const TOTAL_USERS_COUNT = 'TOTAL-USERS-COUNT';
 
 let subscribers = {
 	 myFriendsData:[],
-	 pageSize: 5,
-	 totalUsersCount: 20,
+	 pageSize: 100,
+	 totalUsersCounts: 0,
 	 currentPage: 1,
 	 isFetching: true
 }
@@ -41,11 +42,15 @@ const subscribersReducer = (state=subscribers, action) =>{
 		}
 		case SET_CURRENT_PAGE:
 		{
-			return {...state, currentPage: action.currentPage}
+			return {...state, currentPage: action.currentPage }
 		}
 		case TOGGOLE_IS_FETCHING:
 		{
-			return { ...state, isFetching: action.isFetching}
+			return { ...state, isFetching: action.isFetching }
+		}
+		case TOTAL_USERS_COUNT:
+		{
+			return { ...state, totalUsersCounts: action.totalCount }
 		}
 		default:
 		return state;
@@ -68,6 +73,9 @@ export const setCurrentPage = (currentPage) =>({
 export const toggoleIsFetching = (isFetching) =>({
 	type: TOGGOLE_IS_FETCHING, isFetching
 });
+export const totalUsersCount = (totalCount) =>({
+	type: TOTAL_USERS_COUNT, totalCount
+})
 
 
 export default subscribersReducer; 

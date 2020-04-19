@@ -8,12 +8,11 @@ import * as axios from 'axios';
 
 
 let Subscribers = (props) => {
-		let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+		let pagesCount = Math.ceil(props.totalUsersCounts / props.pageSize);
 		let pages = [];
 		for (let i=1; i <= pagesCount; i++){
 			pages.push(i);
 		}
-
 	return (
 		<div className={s.subscribers}>
       	{

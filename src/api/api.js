@@ -1,25 +1,9 @@
-import React from 'react';
-import {Route} from 'react-router-dom';
-import HeaderContainer from './CoreComponents/Header/HeaderContainer';
-import Nav from './CoreComponents/Nav/Nav';
-import PhotoPost from './CoreComponents/PhotoPost/PhotoPost';
-import Futer from './CoreComponents/Futer/Futer';
-import DialogsContainer from './CoreComponents/Dialogs/DialogsContainer';
-import LibraryContainer from './CoreComponents/Library/LibraryContainer';
-import Music from './CoreComponents/Music/Music';
-import InterestsContainer from './CoreComponents/Interests/InterestsContainer';
-import UserProfileContainer from './CoreComponents/UserProfile/UserProfileContainer';
-import SubscribersContainer from './CoreComponents/Subscribers/SubscribersContainer';
-import './App.css';
+import * as axios from 'axios';
 
-
-const App = (props) =>{
-
-  return (
-      <div className="app-wrapper">
-
-      </div>
-    );
+export const grtUsers = (props) =>{
+  return axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+      withCredentials: true
+  })
 }
 
-export default App;
+ 

@@ -1,24 +1,31 @@
 const SET_BOOK = 'SET-BOOK';
+const SET_BOOK_COPY = 'SET_BOOK_COPY';
 const DETAILED_INFORMATION = 'DETAILED-INFORMATION';
 const DETAILED_INFORMATION_REMOVE = 'DETAILED_INFORMATION_REMOVE';
 const TEXT_CHENGE = 'TEX-CHENGE';
 const SEARCH_OPTION = 'SEARCH-OPTION';
 const SEARCH = 'SEARCH';
 const REMOVE = 'REMOVE';
+const LIBRARY_UPDATE = 'LIBRARY-UPDATE';
+const LIBRAY_NDICATOR = 'LIBRAY-NDICATOR';
 
 
 let initialState = {
 	bookCoverLibrary: [],
-    informationBoo:[],
+    bookCoverLibraryCopy: [],
+    informationBoo: [],
     searchText: '',
-    searchOption: "1"
+    searchOption: "1",
+    libraryIndicator: false
 }
 
 const libraryReducer = (state = initialState, action) =>{
     switch(action.type){
-        case SET_BOOK:
-        {
-        return { ...state, bookCoverLibrary: [ ...state.bookCoverLibrary, ...action.book ]}
+        case SET_BOOK: {
+            let stateCopy = {...state};
+            stateCopy.bookCoverLibrary = [...state.bookCoverLibrary];
+            stateCopy.bookCoverLibraryCopy = [...state.bookCoverLibrary];
+        return stateCopy
         }
         case DETAILED_INFORMATION:
         return {
@@ -29,26 +36,37 @@ const libraryReducer = (state = initialState, action) =>{
             })
             }
         case DETAILED_INFORMATION_REMOVE:
-        debugger;
         return { ...state, informationBoo: [] }
         case TEXT_CHENGE:
         return { ...state, searchText: action.newText}
         case SEARCH_OPTION:
         return { ...state, searchOption: action.option }
-        case SEARCH:
-        return {
-             ...state, 
-                bookCoverLibrary: state.bookCoverLibrary.filter(k => {
+        case SEARCH: {
+            let stateCopy = {...state};
+            stateCopy.bookCoverLibrary = [...state.bookCoverLibraryCopy.filter(k => {
                     if (state.searchOption == "1") {
-                        return state.searchText == k.nameBook;
+                        let search = state.searchText.toLowerCase();
+                        let nameBook = k.nameBook.toLowerCase();
+
+                        return nameBook.includes(search);
                     } else if (state.searchOption == "2") {
-                        return state.searchText == k.author;
+                        let searchText = state.searchText.toLowerCase();
+                        let author = k.author.toLowerCase();
+
+                        return author.includes(searchText);
                     } else if (state.searchOption == "3") {
                         return state.searchText == k.id;
                     }
                     return k;
-                })
+                })];
+            (stateCopy.bookCoverLibrary == 0) ? stateCopy.libraryIndicator = true : 
+            stateCopy.libraryIndicator = false;
+                
+            return stateCopy
             }
+         
+        case LIBRARY_UPDATE:
+        return { ...state, bookCoverLibrary: [ ...state.bookCoverLibrary, ...action.book ] }
         default:
         return state;
     }
@@ -72,51 +90,17 @@ export const searchOption = (option) =>({
 export const searchBook = () =>({ 
     type: SEARCH 
 });
+export const libraryUpdate = (book) =>({
+    type: LIBRARY_UPDATE, book
+});
+export const librarySearchIndicator = () =>({
+    type: LIBRAY_NDICATOR
+});
 
 export default libraryReducer;
 
-// k.nameBook === state.searchText && searchResult.push(...k);
 
 
-// if (state.searchOption === 1) {
-//                     for (var i = 0; i < state.bookCoverLibrary.length; i++) {                      
-//                            console.log(i);
-//                     }
-//                     if (k.nameBook != state.searchText) {
-//                         state.bookCoverLibrary.delete(k);
-//                     } return k;
-//                 } else if (state.searchOption === 2) {
-//                     for (var i = 0; i < state.bookCoverLibrary.length; i++) {                      
-//                            console.log(i);
-//                     }
-//                     if (k.nameBook != state.searchText) {
-//                        state.bookCoverLibrary.delete(k);
-//                     } return k;   
-//                 } else if (state.searchOption === 3){
-//                     debugger;
-//                     for (var i = 0; i < state.bookCoverLibrary.length; i++) {                      
-//                            console.log(i);
-//                     }
-//                     return k;
-//                 } return k;
-
-// (state.searchText == k.id) ? console.log(k) : console.log("Nothing found"); 
-
-
-
-            // state.bookCoverLibrary.map( k => {
-            //     if (state.searchOption == "1") {
-            //         (state.searchText == k.nameBook) ? console.log(k) : console.log("Book not found");
-            //         return {...k} 
-            //     } else if (state.searchOption == "2") {
-            //         (state.searchText == k.author) ? console.log(k) : console.log("Writer not found");
-            //         return {...k}
-            //     } else if (state.searchOption == "3") {
-            //         (state.searchText == k.id) ? console.log(k) : console.log("Id not found");
-            //         return {...k}
-            //     } else {
-            //         console.log("Nothing found");
-            //         return k;
-            //     }
-            //     return k;
-            // })
+            // let stateCopy = {...state};
+            // stateCopy.bookCoverLibrary = [...state.bookCoverLibrary];
+            // stateCopy.libraryIndicator = true;

@@ -5,7 +5,6 @@ import LibraryContainer from './LibraryContainer';
 
 
 let Library = (props) => {
-
 		let textSearch = React.createRef();
 
 		let onTextSearch = () =>{
@@ -24,7 +23,15 @@ let Library = (props) => {
 			props.searchBooks();
 		}
 
-		
+		let libraryUpdateSensor = () =>{
+			props.libraryUpdateFan();
+		}
+		let Indicator = () =>{
+			props.librarySearchIndicator();
+		}
+		if (props.bookCoverLibrarys == 0) {
+			libraryUpdateSensor();
+		}
 		 return (
 	      	<div className={s.dialogs}>
 		         <div className={s.subscribers}>
@@ -32,7 +39,7 @@ let Library = (props) => {
 			      className={s.subscribers_form} 
 			      onChange={onTextSearch}
 			      ref={textSearch}
-			      value={props.searchText} 
+			      value={props.searchText}
 			      ></input>
 			      <select ref={selectValue} onChange={ () => onselectValue()}>
 				      	<option value={"1"}>Search by name</option>
@@ -41,6 +48,9 @@ let Library = (props) => {
 			      </select>
 			      <button className={s.buttons} onClick={startSearchBooks} >Найти</button>
       		</div>
+      		<div className={s.bookNotFound}>
+	        	<span>{props.libraryIndicator ? "Book not found in the library" : "Enter the search parameters"}</span> 
+	        </div>
 	        <div className={s.library}>
 		        {
 		        props.bookCoverLibrarys.map(b => <div id={b.id} className={s.library_book} >
@@ -53,9 +63,8 @@ let Library = (props) => {
 				<span className={s.library_book_name} title="read book">{b.nameBook}</span> 
 				</div>)
 		        }   	
-	        </ div>
+	        </div>
 	        { 
-	        	props.information === null ? console.log("there was no request") :
 	        	props.informationBoo.map(i => <div className={s.information_window_container}>
 	        		<span onClick={props.removalInformation} className={s.information_window_close}>x</span>
 		        	<div className={s.information_window} >

@@ -126,3 +126,8 @@
     cursor: pointer;
     outline: none;
 }
+.bookNotFound{
+  width: 90%;
+  height: 20px;
+  margin: auto;
+}
