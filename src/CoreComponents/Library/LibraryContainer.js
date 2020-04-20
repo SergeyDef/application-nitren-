@@ -1,6 +1,7 @@
 import React from 'react';
 import Library from './Library';
 import {connect} from 'react-redux';
+import {grtBooks} from '../../api/api';
 import {setBook, 
 	showInformation, 
 	searchBook, 
@@ -9,20 +10,17 @@ import {setBook,
 	removalInformation,
 	libraryUpdate,
     librarySearchIndicator} from '../../state/libraryReducer';
-import * as axios from 'axios';
 
 class LibraryAPI extends React.Component {
 
 	componentDidMount(){
-		axios.get("https://raw.githubusercontent.com/SergeyDef/nitrenJSON-/master/books.json")
-		.then(response =>{
+		grtBooks().then(response =>{
 			this.props.setBooks(response.data.items);
 		});
 	}
 
 	libraryUpdateFan = () => {
-		axios.get("https://raw.githubusercontent.com/SergeyDef/nitrenJSON-/master/books.json")
-		.then(response =>{
+		grtBooks().then(response =>{
 			this.props.libraryUpdates(response.data.items);
 		});
 	}

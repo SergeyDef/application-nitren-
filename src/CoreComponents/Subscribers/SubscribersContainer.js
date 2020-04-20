@@ -1,32 +1,25 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {inFriend, notFriend, setFriend, setCurrentPage, toggoleIsFetching, totalUsersCount} from '../../state/subscribersReducer';
-import * as axios from 'axios';
 import Subscribers from './Subscribers';
 import preloader from '../../assec/img/preloader.svg'
 import s from './subscribers.module.css';
+import {grtUsers} from '../../api/api';
 
 class SubscribersAPI extends React.Component {
 	
 	componentDidMount(){
-		this.props.toggoleIsFetching(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-			withCredentials: true
-		})
-		.then(response =>{
-				this.props.setFriend(response.data.items);
-				this.props.totalUsersCount(response.data.totalCount);
+		grtUsers(this.props.currentPage, this.props.pageSize).then(data =>{
+				this.props.setFriend(data.items);
+				this.props.totalUsersCount(data.totalCount);
 			});
 		this.props.toggoleIsFetching(false);
 	}
 	onPageChanged = (pageNumber) =>{
 		this.props.setCurrentPage(pageNumber);
 		this.props.toggoleIsFetching(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-			withCredentials: true
-		})
-			.then(response =>{
-				this.props.setFriend(response.data.items);
+		grtUsers(pageNumber, this.props.pageSize).then(data =>{
+				this.props.setFriend(data.items);
 			});
 		this.props.toggoleIsFetching(false);
 		}
