@@ -2,20 +2,26 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as axios from 'axios';
 import Dialogs from './Dialogs';
+import {withAuthRedirect} from '../../withRedirect/withAuthRedirect';
 import {aadUserMessageCreator, nawUserMessageCreator} from '../../state/dialogsReducer';
 
+
 class DialogsAPI extends React.Component {
+
   render () {
     return <Dialogs dialogData={this.props.dialogData} 
-    messageData={this.props.messageData} 
+    messageData={this.props.messageData}
     />
   }
 }
 
+let AuthLogsContainer = withAuthRedirect(DialogsAPI);
+
 let mapStateToProps = (state) =>{
   return{
     dialogData: state.dialogs.dialogData,
-    messageData: state.dialogs.messageData
+    messageData: state.dialogs.messageData,
+    isAuth: state.auth.isAuth
   }
 }
 let mapDispatchToProps = (dispatch) =>{
@@ -29,6 +35,6 @@ let mapDispatchToProps = (dispatch) =>{
   }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(DialogsAPI);
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthLogsContainer);
 
 export default DialogsContainer;

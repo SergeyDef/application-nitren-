@@ -1,6 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {inFriend, notFriend, setFriend, setCurrentPage, toggoleIsFetching, totalUsersCount} from '../../state/subscribersReducer';
+import {inFriend, 
+		notFriend, 
+		setCurrentPage, 
+		getSubscribersCreator} from '../../state/subscribersReducer';
 import Subscribers from './Subscribers';
 import preloader from '../../assec/img/preloader.svg'
 import s from './subscribers.module.css';
@@ -9,19 +12,11 @@ import {grtUsers} from '../../api/api';
 class SubscribersAPI extends React.Component {
 	
 	componentDidMount(){
-		grtUsers(this.props.currentPage, this.props.pageSize).then(data =>{
-				this.props.setFriend(data.items);
-				this.props.totalUsersCount(data.totalCount);
-			});
-		this.props.toggoleIsFetching(false);
+		this.props.getSubscribersCreator(this.props.currentPage, this.props.pageSize);
 	}
 	onPageChanged = (pageNumber) =>{
 		this.props.setCurrentPage(pageNumber);
-		this.props.toggoleIsFetching(true);
-		grtUsers(pageNumber, this.props.pageSize).then(data =>{
-				this.props.setFriend(data.items);
-			});
-		this.props.toggoleIsFetching(false);
+		this.props.getSubscribersCreator(pageNumber, this.props.pageSize);
 		}
 
 	render (){
@@ -34,7 +29,6 @@ class SubscribersAPI extends React.Component {
 				  currentPage={this.props.currentPage}
 				  pageSize = {this.props.pageSize}
 				  onPageChanged={this.onPageChanged}
-				  totalUsersCount={this.totalUsersCount}
 		  />
 		</>
 	}
@@ -75,10 +69,8 @@ let mapStateToProps = (state) =>{
 const SubscribersContainer = connect(mapStateToProps, {
 		inFriend,
 		notFriend,
-		setFriend,
 		setCurrentPage,
-		toggoleIsFetching,
-		totalUsersCount
+		getSubscribersCreator
 		})(SubscribersAPI);
 
 export default SubscribersContainer;

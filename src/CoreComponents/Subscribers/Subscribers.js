@@ -59,7 +59,7 @@ let Subscribers = (props) => {
 		      					}
 					})
 
-		      			} className={s.buttons}>remove friend</button>}	
+		      			} className={s.buttons}>remove friend</button>}
 		     </div>
 	      </div>)
       	}

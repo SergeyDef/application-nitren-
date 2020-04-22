@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Header.module.css';
 import {NavLink} from 'react-router-dom';
 import logo from '../../assec/img/logo.png';
+import UserStatus from './userStatus/UserStatus';
 
 const Header = (props) =>{
   return (
@@ -14,15 +15,7 @@ const Header = (props) =>{
           </a>
         </div>
         <ul className= {s.menu_item}>
-          <li className={s.a_item}>        
-            <a href="">О нас</a>        
-          </li>
-          <li className={s.a_item}>        
-            <a href="">О нас</a>        
-          </li>
-          <li className={s.a_item}>        
-            <a href="">О нас</a>        
-          </li>        
+          <UserStatus status={"Hello my friends"} />
         </ul>
         <div className={s.loginBlock}>
         <span>{ props.isAuth ? "User login: " + props.login : <NavLink to={'/login'}>Login</NavLink>}</span>

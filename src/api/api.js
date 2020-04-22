@@ -16,4 +16,8 @@ export const grtBooks = () =>{
 	return axios.get("https://raw.githubusercontent.com/SergeyDef/nitrenJSON-/master/books.json")
 }
 
+export const grtLogin = () =>{
+	return  instance.get("auth/me")
+}
+
  

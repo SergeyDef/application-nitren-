@@ -1,0 +1,45 @@
+.dialogs{
+	display: grid;
+	grid-template-columns: 2fr 10fr;
+	padding: 5px;
+	background-color: #fafafa;
+}
+
+.dialogs__all{
+	background-color: #eeeeee;
+}
+
+.dialog__all_img>img{
+ width: 60px;
+}
+
+.message__user_img img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.dialogs__window{
+	display: flex;
+	flex-direction: column;
+	margin: 0 2%;
+	background-color: #eeeeee;
+}
+.dialogs__window_field{
+	flex-basis: 90%;
+}
+.dialogs__window_form{
+	flex-basis: auto;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #000000;
+    width: 20%;
+    height: 35px;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}

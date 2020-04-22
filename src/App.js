@@ -10,6 +10,7 @@ import Music from './CoreComponents/Music/Music';
 import InterestsContainer from './CoreComponents/Interests/InterestsContainer';
 import UserProfileContainer from './CoreComponents/UserProfile/UserProfileContainer';
 import SubscribersContainer from './CoreComponents/Subscribers/SubscribersContainer';
+import LoginContainer from './CoreComponents/login/LoginContainer';
 import './App.css';
 
 
@@ -38,6 +39,8 @@ const App = (props) =>{
           
           <Route path='/subscribers' 
             render={ () => <SubscribersContainer />} />
+          <Route path='/login'
+            render={ () => <LoginContainer/>} />
         </div>
         <Futer />
       </div>

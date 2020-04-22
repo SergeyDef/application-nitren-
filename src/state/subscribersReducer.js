@@ -1,4 +1,5 @@
 // const REQUEST_RECEIVED = 'REQUEST-RECEIVED';
+import {grtUsers} from '../api/api.js';
 const IN_FRIENDS = 'IN-FRIENDS';
 const NOT_FRIENDS = 'NOT-FRIENDS';
 const SET_FRIENDS = 'SET-FRIENDS';
@@ -77,26 +78,17 @@ export const totalUsersCount = (totalCount) =>({
 	type: TOTAL_USERS_COUNT, totalCount
 })
 
+export const getSubscribersCreator = (currentPage, pageSize) =>{
+	return (dispatch) =>{
+
+		dispatch(toggoleIsFetching(true));
+
+		grtUsers(currentPage, pageSize).then(data =>{
+				dispatch(setFriend(data.items));
+				dispatch(totalUsersCount(data.totalCount));
+			});
+		dispatch(toggoleIsFetching(false));
+	}
+} 
 
 export default subscribersReducer; 
-// const subscribersReducer = (state=subscribers, action) =>{
-	
-// 	if(action.type === REQUEST_RECEIVED){
-// 		let  array_subscribers = subscribers.myFriendsData;
-// 		 array_subscribers.forEach((item) => {
-// 		 	let nameFriend = item.nameFriend;
-// 		 	if (nameFriend === action.resultSearch) {
-// 		 		item.display = "block";
-// 		 	} else if (nameFriend != action.resultSearch){
-// 		 		item.display = "none";
-// 		 	}
-// 		 });
-// 		// alert(action.resultSearch + " " + "мы тут!");
-// 	}
-//   return state;
-// }
-
-// export const textSearch = (text) =>({
-// 	type: REQUEST_RECEIVED,
-// 	resultSearch: text
-// });
