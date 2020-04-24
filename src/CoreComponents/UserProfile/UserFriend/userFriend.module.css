@@ -1,4 +1,5 @@
 .user_friend{
 	display: flex;
 	flex-direction: row;
+	background-color: #F0EFF4;
 }

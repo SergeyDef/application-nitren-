@@ -37,7 +37,7 @@
 }
 .status_text{
   display: block;
-  margin: auto;
+  margin: auto 0;
 }
 .status_field_block{
   display: flex;
@@ -68,6 +68,7 @@
   border-radius: 5px;
   cursor: pointer;
   outline: none;
+  border-color: #00BFFF;
 }
 .picchu_status_block{
   display: flex;

@@ -18,7 +18,7 @@ const NewsUser = (props) =>{
 	let postDate = props.userPostDate.map(ps => (<UserPost id={ps.id} datePublication={ps.datePublication} text={ps.text} />) )
 	
 	return (
-	<div>
+	<div className={s.news_user_block}>
 		<div className={s.userAvatar} id={props.id}>
 			<button className={s.buttons} onClick={onPublish}>Опубликовать</button>
 			<textarea rows="2" cols="70" onChange={onPostChange} value={props.newPostText} ref={newPostElement} className={s.publicationForm} />

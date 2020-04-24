@@ -6,6 +6,7 @@ import libraryReducer from './libraryReducer';
 import subscribersReducer from './subscribersReducer';
 import authReducer from './authReducer';
 import thunkMiddleware from 'redux-thunk';
+import { reducer as formReducer} from 'redux-form';
 
 let reducers = combineReducers({
   userProfile: userPostReducer,
@@ -13,7 +14,8 @@ let reducers = combineReducers({
   photoPost: protoPostReducer,
   library: libraryReducer,
   subscribers: subscribersReducer,
-  auth: authReducer
+  auth: authReducer,
+  form: formReducer
 
 });
 
