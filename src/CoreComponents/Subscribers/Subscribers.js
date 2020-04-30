@@ -1,18 +1,13 @@
 import React from 'react';
-// import SearchFriendsContainer from './SearchFriends/SearchFriendsContainer';
 import s from './subscribers.module.css';
 import SubscribersContainer from './SubscribersContainer';
 import ava2 from '../../assec/img/ava2.jpg';
 import {NavLink} from 'react-router-dom';
+import PageSelectorContainer from './PageSelector/PageSelector';
 import * as axios from 'axios';
 
-
 let Subscribers = (props) => {
-		let pagesCount = Math.ceil(props.totalUsersCounts / props.pageSize);
-		let pages = [];
-		for (let i=1; i <= pagesCount; i++){
-			pages.push(i);
-		}
+	
 	return (
 		<div className={s.subscribers}>
       	{
@@ -63,14 +58,7 @@ let Subscribers = (props) => {
 		     </div>
 	      </div>)
       	}
-      	<div>
-	      	{
-	      		pages.map( p =>{
-	      			return <span className={props.currentPage === p ? s.this_switch : s.switchs}
-	      			onClick={ (e) => { props.onPageChanged(p); }} >{p}</span>
-	      		})
-	      	}
-      	</div>
+      	<PageSelectorContainer onPageChanged={props.onPageChanged} />
       </div>)
 }
 

@@ -18,7 +18,9 @@ const Header = (props) =>{
           <UserStatus status={"Hello my friends"} />
         </ul>
         <div className={s.loginBlock}>
-        <span>{ props.isAuth ? "User login: " + props.login : <NavLink to={'/login'}>Login</NavLink>}</span>
+        <span className={s.button + " " + s.exit}>{ props.isAuth ? props.login : 
+          <NavLink to={'/login'} >Login</NavLink>}</span>
+        { props.isAuth && <button className={s.button} onClick={props.logout}>exit</button> }
         </div>
       </div>
     );

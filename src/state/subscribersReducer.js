@@ -6,13 +6,17 @@ const SET_FRIENDS = 'SET-FRIENDS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const TOGGOLE_IS_FETCHING = 'TOGGOLE-IS-FETCHING';
 const TOTAL_USERS_COUNT = 'TOTAL-USERS-COUNT';
+const ADD_PAGES = 'ADD-PAGES';
+const REDUCE_PAGES = 'REDUCE-PAGES';
 
 let subscribers = {
 	 myFriendsData:[],
-	 pageSize: 100,
+	 pageSize: 5,
 	 totalUsersCounts: 0,
 	 currentPage: 1,
-	 isFetching: true
+	 isFetching: true,
+	 pagesLeft: 0,
+	 pagesRight: 10
 }
 
 const subscribersReducer = (state=subscribers, action) =>{
@@ -53,6 +57,11 @@ const subscribersReducer = (state=subscribers, action) =>{
 		{
 			return { ...state, totalUsersCounts: action.totalCount }
 		}
+		case ADD_PAGES:
+		let stateCopy = {...state};
+            stateCopy.pagesLeft = action.pageLeft;
+            stateCopy.pagesRight = action.pageRight;
+		return stateCopy
 		default:
 		return state;
 	}	
@@ -76,7 +85,10 @@ export const toggoleIsFetching = (isFetching) =>({
 });
 export const totalUsersCount = (totalCount) =>({
 	type: TOTAL_USERS_COUNT, totalCount
-})
+});
+export const addPages = (pageLeft, pageRight) => ({
+	type: ADD_PAGES, pageLeft, pageRight
+});
 
 export const getSubscribersCreator = (currentPage, pageSize) =>{
 	return (dispatch) =>{
@@ -89,6 +101,6 @@ export const getSubscribersCreator = (currentPage, pageSize) =>{
 			});
 		dispatch(toggoleIsFetching(false));
 	}
-} 
+}
 
 export default subscribersReducer; 

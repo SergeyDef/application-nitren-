@@ -47,11 +47,17 @@ button::-moz-focus-inner {
     border-radius: 5px;
     cursor: pointer;
 }
+.switch_block{
+	display: flex;
+}
 .switchs{
 	background-color: #eaeaea;
 	border: solid 1px #000000;
 	padding: 5px 8px;
 	cursor: pointer;
+	display: block;
+	width: 20px;
+	text-align: center;
 }
 .switchs:hover{
 	background-color: #eaeaaa;
@@ -62,6 +68,9 @@ button::-moz-focus-inner {
 	border: solid 1px #000000;
 	padding: 5px 8px;
 	cursor: pointer;
+	text-align: center;
+	display: block;
+	width: 20px;
 }
 .IsFetching{
 	height: 100%;
@@ -75,4 +84,31 @@ button::-moz-focus-inner {
 	margin: auto;
 	display: block;
 	width: 30%;
+}
+.selectorPage{
+	display: flex;
+	width: 120px;
+}
+.page_point{
+	border: 2px solid #000000;
+	background-color: #eaeaea;
+	display: block;
+	width: 8px;
+	height: 8px;
+	border-radius: 10px;
+	margin: auto;
+}
+.page_button{
+	width: 40px;
+	padding: 5px 8px;
+	background-color: #eaeaea;
+    border: solid 1px #000000;
+    cursor: pointer;
+}
+.page_button:hover{
+	background-color: #eaeaaa;
+}
+.arrow{
+	width: 100%;
+	height: auto;
 }

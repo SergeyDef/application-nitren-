@@ -9,37 +9,37 @@ const Nav = () =>{
         <ul className={s.menulist}>
           <li className={s.item}>
             <NavLink to="/userProfile">
-              <span>Мой профель</span>
+              <span>My profile</span>
             </NavLink>
           </li>
           <li className={s.item}>
               <NavLink to="/library">
-                <span>Библиотека</span>
+                <span>Library</span>
               </NavLink>
           </li>
           <li className={s.item}>
             <NavLink to="/interests">
-              <span>Интересы</span>
+              <span>Interests</span>
             </NavLink>
           </li>
           <li className={s.item}>
             <NavLink to="/music">
-             <span>Музыка</span>
+             <span>Music</span>
             </NavLink>
           </li>
           <li className={s.item}>
             <NavLink to="/dialogs">
-              <span>Сообщения</span>
+              <span>Messages</span>
             </NavLink>
           </li>
           <li className={s.item}>
             <NavLink to="/photoPost">
-              <span>Фото</span>
+              <span>Photo</span>
             </NavLink>
           </li>
           <li className={s.item}>
             <NavLink to="/subscribers">
-              <span>Подписчики</span>
+              <span>Site user</span>
             </NavLink>
           </li>
         </ul>

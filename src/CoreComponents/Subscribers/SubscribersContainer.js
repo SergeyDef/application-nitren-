@@ -5,7 +5,7 @@ import {inFriend,
 		setCurrentPage, 
 		getSubscribersCreator} from '../../state/subscribersReducer';
 import Subscribers from './Subscribers';
-import preloader from '../../assec/img/preloader.svg'
+import preloader from '../../assec/img/preloader.svg';
 import s from './subscribers.module.css';
 import {grtUsers} from '../../api/api';
 
@@ -35,36 +35,12 @@ class SubscribersAPI extends React.Component {
 }
 
 let mapStateToProps = (state) =>{
-	debugger;
 	return {
 		myFriendsData: state.subscribers.myFriendsData,
+		isFetching: state.subscribers.isFetching,
 		pageSize: state.subscribers.pageSize,
-		totalUsersCounts: state.subscribers.totalUsersCounts,
-		currentPage: state.subscribers.currentPage,
-		isFetching: state.subscribers.isFetching
 	}
 }
-
-// let mapDispatchToProps = (dispatch) =>{
-// 	return {
-// 		inFriends: (userId) => {
-// 			dispatch(inFriend(userId));
-// 		},
-// 		notFriends: (userId) => {
-// 			dispatch(notFriend(userId));
-// 		},
-// 		setFriends: (users) => {
-// 			dispatch(setFriend(users));
-// 		},
-// 		setCurrentPage: (pegeNumber) => {
-// 			dispatch(setCurrentPageAC(pegeNumber));
-// 		},
-// 		setleIsFetching: (isFetching) => {
-// 			dispatch(toggoleIsFetching(isFetching));
-// 		}
-// 	}
-//}onPageChanged
-
 
 const SubscribersContainer = connect(mapStateToProps, {
 		inFriend,

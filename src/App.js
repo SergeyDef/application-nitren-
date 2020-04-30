@@ -3,14 +3,15 @@ import {Route} from 'react-router-dom';
 import HeaderContainer from './CoreComponents/Header/HeaderContainer';
 import Nav from './CoreComponents/Nav/Nav';
 import PhotoPost from './CoreComponents/PhotoPost/PhotoPost';
-import Futer from './CoreComponents/Futer/Futer';
+// import Futer from './CoreComponents/Futer/Futer';
 import DialogsContainer from './CoreComponents/Dialogs/DialogsContainer';
 import LibraryContainer from './CoreComponents/Library/LibraryContainer';
 import Music from './CoreComponents/Music/Music';
 import InterestsContainer from './CoreComponents/Interests/InterestsContainer';
 import UserProfileContainer from './CoreComponents/UserProfile/UserProfileContainer';
 import SubscribersContainer from './CoreComponents/Subscribers/SubscribersContainer';
-import LoginContainer from './CoreComponents/login/LoginContainer';
+import LoginContainer from './CoreComponents/Login/LoginContainer';
+import RegistrationContainer from './CoreComponents/Registration/RegistrationContainer';
 import './App.css';
 
 
@@ -40,9 +41,10 @@ const App = (props) =>{
           <Route path='/subscribers' 
             render={ () => <SubscribersContainer />} />
           <Route path='/login'
-            render={ () => <LoginContainer/>} />
+            render={ () => <LoginContainer/> } />
+          <Route path='/registration'
+            render={ () => <RegistrationContainer/> } />
         </div>
-        <Futer />
       </div>
     );
 }

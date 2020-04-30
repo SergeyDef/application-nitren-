@@ -70,6 +70,19 @@
   outline: none;
   border-color: #00BFFF;
 }
+.button{
+  margin: auto;
+  color: #ffffff;
+  display: block;
+  background-color: #000000;
+  width: 50%;
+  height: 35px;
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  border-color: #00BFFF;
+}
 .picchu_status_block{
   display: flex;
   width: 5%;
@@ -79,4 +92,11 @@
   width: 100%;
   height: auto;
   margin: auto;
+}
+.exit{
+  text-decoration: none;
+  width: 140%;
+  text-align: center;
+  height: 25px;
+  background-color: #ff5335;
 }
