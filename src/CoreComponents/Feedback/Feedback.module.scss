@@ -1,0 +1,54 @@
+@import "../../scss/_mixins.scss";
+
+.feedback__form{
+  width: 100%;
+  height: auto;
+  margin: 3%;
+}
+.form{
+  grid-area: f;
+  padding: 10px 10px 40px 10px;
+  width: 320px;
+  height: auto;
+  margin: auto;
+
+  &__name__item{
+    font-family: 'Viga', sans-serif;
+  }
+
+  &__item{
+    @include inputs(320px, 35px);
+  }
+  &__textarea{
+    @include textareas(320px, 150px, 15px);
+  }
+
+  &__block__buttons{
+      display: flex;
+      justify-content: center;
+      width: 320px;
+      margin: auto;
+
+      .buttons {
+      @include buttons(100px, 35px, 20px);
+      margin: 5px auto;
+    }
+  }
+}
+
+
+
+
+/* buttons */
+
+
+
+
+.input_list{
+  font-family: 'Concert One', cursive;
+}
+.login__header{
+  @include headers(40%, 1rem);
+}
+
+

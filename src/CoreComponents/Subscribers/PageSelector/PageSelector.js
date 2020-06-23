@@ -1,30 +1,47 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Subscribers from '../Subscribers';
-import s from '../subscribers.module.css';
-import {addPages} from '../../../state/subscribersReducer';
+import s from '../subscribers.module.scss';
+import {addPages, setCurrentPage} from '../../../state/subscribersReducer';
 import arrow_right from '../../../assec/img/arrow_right.svg';
 import left_arrow from '../../../assec/img/left_arrow.svg';
 
 class PageSelector extends React.Component {
 	stete = {
-		pagesLeftIndicator: true,
+		pagesLeftIndicator: false,
 	 	pagesRightIndicator: true
 	}
+
 	indicatorChangeLeft = () => {
-		if (this.props.pagesLeft === 0) {
+		let left = this.props.pagesLeft;
+		let right = this.props.pagesRight;
+
+		left -= 10;
+		right -=10;
+		this.props.addPages(left, right);
+
+		if (left < 10) {
 			this.stete.pagesLeftIndicator = false;
-		} else if (this.props.pagesLeft != 0) {
-			this.stete.pagesLeftIndicator = true;
 		}
+		this.props.setCurrentPage(right);
+		console.log(this.props.currentPage);
 	}
 	indicatorChangeRight = () =>{
-		if (this.props.pagesRight < 10) {
-			this.stete.pagesRightIndicator = false;
-		} else {
-			this.stete.pagesRightIndicator = true;
-		}
+		let left = this.props.pagesLeft;
+		let right = this.props.pagesRight;
+
+		this.stete.pagesLeftIndicator = true;
+
+		left +=10;
+		right +=10;
+
+		this.props.addPages(left, right);
+		console.log(left);
+
+		this.props.setCurrentPage(left);
+		console.log(this.props.currentPage);
 	}
+
 	render() {
 		return <Selectors totalUsersCounts={this.props.totalUsersCounts}
 		pageSize={this.props.pageSize}
@@ -42,22 +59,6 @@ class PageSelector extends React.Component {
 }
 
 let Selectors = (props) =>{
-	props.indicatorChangeLeft();
-	props.indicatorChangeRight();
-		let left = props.pagesLeft;
-		let right = props.pagesRight;
-		
-
-		let leftFlipping = () => {
-			left +=10;
-			right +=10;
-			props.addPages(left, right);
-		}
-		let rightFlipping = () => {
-			left -=10;
-			right -=10;
-			props.addPages(left, right);
-		}
 
 		let pagesCount = Math.ceil(props.totalUsersCounts / props.pageSize);
 		let pages = [];
@@ -66,11 +67,12 @@ let Selectors = (props) =>{
 				pages.push(i);
 			}
 		}
+		
 		return ( 
 			<div className={s.switch_block}>
 			{ props.pagesLeftIndicator &&
 				<div className={s.selectorPage}>
-		      		<button className={s.page_button} onClick={rightFlipping} ><img src={left_arrow} className={s.arrow} alt="arrow" /></button>
+		      		<button className={s.page_button} onClick={props.indicatorChangeLeft} ><img src={left_arrow} className={s.arrow} alt="arrow" /></button>
 				      	<span className={s.page_point}></span>
 				      	<span className={s.page_point}></span>
 				      	<span className={s.page_point}></span>
@@ -87,7 +89,7 @@ let Selectors = (props) =>{
 			      	<span className={s.page_point}></span>
 			      	<span className={s.page_point}></span>
 			      	<span className={s.page_point}></span>
-			      	<button className={s.page_button} onClick={leftFlipping} ><img src={arrow_right} className={s.arrow} alt="right" /></button>
+			      	<button className={s.page_button} onClick={props.indicatorChangeRight} ><img src={arrow_right} className={s.arrow} alt="right" /></button>
 		    	</div>
 	      	}
       	</div>)
@@ -105,6 +107,6 @@ let mapStateToProps = (state) =>{
 	}
 }
 
-let PageSelectorContainer = connect(mapStateToProps, {addPages})(PageSelector);
+let PageSelectorContainer = connect(mapStateToProps, {addPages, setCurrentPage})(PageSelector);
 
 export default PageSelectorContainer;

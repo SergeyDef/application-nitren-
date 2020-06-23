@@ -1,0 +1,108 @@
+@import "../../scss/_mixins.scss";
+
+.login{
+
+  &__header{
+    @include headers(40%, 1rem);
+  }
+
+  &__page{
+    display: flex;
+  }
+
+  .identification__form{
+    width: 40%;
+    height: auto;
+
+    .form{
+      grid-area: f;
+      padding: 10px 10px 40px 10px;
+      width: 300px;
+      height: auto;
+      margin: auto;
+      background-color: #fffafa;
+      box-shadow: 0 0 5px 2px;
+
+        &__line{
+
+      }
+
+      &__name{
+        font-family: 'Concert One', cursive;
+      }
+
+      &__name__item{
+        font-family: 'Viga', sans-serif;
+      }
+
+      &__item{
+        @include inputs(250px, 35px);
+      }
+
+      &__item__checkbox{
+
+      }
+      &__block__button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 250px;
+        margin: auto;
+      }
+    }
+  }
+
+  .additionally{
+    width: 60%;
+    border-left: 5px solid #D35400;
+
+    .additionally__block{
+      width: 100%;
+    }
+
+    .guide{
+      display: flex;
+      margin: 4% 0;
+
+      .guide__img__block{
+        width: 40px;
+        height: 40px;
+        margin: 0 2%;
+      }
+
+      .guide__img{
+        width: 100%;
+        height: auto;
+      }
+
+      .guide__link{
+        margin-top: 5px;
+        display: block;
+      }
+
+      .guide__text{
+        font-size: 20px;
+        font-weight: 900;
+        color: #000;
+      }
+      .guide__text:hover{
+        color: #666666;
+      }
+    }
+  }
+
+  .buttons {
+    @include buttons(200px, 35px, 20px);
+    margin: 5px auto;
+  }
+}
+
+@media (max-width: 425px){
+  .login{
+    .login__page{
+      flex-direction: column;
+    }
+  }
+}
+
+

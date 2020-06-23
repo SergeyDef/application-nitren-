@@ -1,0 +1,294 @@
+@import "../../scss/_mixins.scss";
+
+.user {
+    .info{
+        display: flex;
+
+        &__detailed{
+            width: 80%;
+
+            /* slider user's friends */
+            .friend{
+                display: flex;
+                margin: 0 30px;
+                flex-direction: row;
+                background-color: #616682;
+
+                &__arrow{
+                    width: 70px;
+                    height: 50px;
+                    display: flex;
+                    margin: auto 10px;
+                    align-items: center;
+                    cursor: pointer;
+                    background: linear-gradient(to top, #24baef, #49423d, #24baef);
+                    border-radius: 25px;
+
+                    img{
+                        width: 50%;
+                        height: auto;
+                        margin: auto;
+                    }
+                }
+                &__arrow:hover{
+                    transition: background 40s;
+                    background: linear-gradient(to top, #49423d, #24baef, #49423d);
+
+                    img{
+                        opacity: 0.5;
+                        width: 60%;
+                    }
+                }
+
+                &__user{
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    width: 21%;
+                    margin: 2%;
+                    padding: 15px 0;
+                    background-color: #ff5335;
+                    border-radius: 10px;
+
+                    img{
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50%;
+                        margin: 0 auto;
+                    }
+                    span{
+                        color: #303030;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            /* information about user */
+            .information{
+                display: flex;
+
+                &__block{
+                    margin: 2%;
+                    width: 47%;
+                    background: linear-gradient(to right, #00a550, #3498db, #f2b33d);
+                    border-radius: 5px;
+                    padding: 10px;
+                }
+
+                &__block__record{
+                    margin: 20px 5px;
+                }
+                &__user{
+                    font-size: 15px;
+                }
+                &__title{
+                    font-size: 18px;
+                    font-weight: 900;
+                }
+            }
+        }
+
+        /* name user and photo */
+        &__name{
+            width: 20%;
+
+            .avatar{
+                width: 100%;
+                height: auto;
+
+                .avatar__img{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .name{
+                width: 50%;
+                margin: 6px;
+                display: flex;
+
+                &__text{
+                    display: block;
+                    margin: 0 3px;
+                    text-align: center;
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    /* posts on the user's wall */
+    .news{
+        background: linear-gradient(to left, #3498db, #f2b33d);
+        padding: 25px 15px 10px 15px;
+
+        &__block{
+            display: flex;
+            flex-direction: row; 
+        }
+
+        &__textarea{
+            @include textareas(78%, 20px, 15px);
+            margin-top: 3px;
+        }
+
+        &__textarea:focus{
+            background: #fff4ee;
+            box-shadow: 0 0 40px rgba(0, 0, 0, .2) inset;
+        }
+
+        &__post{
+            display: flex;
+            flex-direction: column-reverse;
+            order: 4321;
+
+            .post{
+                margin: 2% 0;
+                opacity: 0.8;
+                padding: 10px;
+                border-right: 1px solid #2a2f33;
+                background-color: #FFFFFF;
+
+                &__date{
+                    width: 100px;
+                    margin-left: 90%;
+                    color: #fff;
+                    padding: 3px 5px;
+                    font-size: 0.9rem;
+                    background-color: #f2b33d;
+                }
+                &__text{
+                    padding: 0 10px;
+                    display: block;
+                }
+            }
+        }
+
+        .buttons {
+            @include buttons(20%, 35px, 17px);
+        }
+    }
+}
+
+@media (max-width: 425px){
+    .user {
+        .info{
+            flex-direction: column;
+
+            &__detailed{
+                width: 100%;
+                order: 2;
+
+                /* slider user's friends */
+                .friend{
+
+
+                    &__arrow{
+                        display: none;
+
+                        img{
+                        }
+                    }
+                    &__arrow:hover{
+
+                        img{
+                        }
+                    }
+
+                    &__user{
+                        border-radius: 0;
+
+                        img{
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 0%;
+                        }
+                        span{
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                /* information about user */
+                .information{
+                    flex-direction: column;
+
+                    &__block{
+                        margin: 1% auto;
+                        width: 90%;
+                        border-radius: 0;
+                        padding: 5px;
+                    }
+
+                    &__block__record{
+                        margin: 5px;
+                    }
+                    &__user{
+                        font-size: 12px;
+                    }
+                    &__title{
+                        font-size: 15px;
+                    }
+                }
+            }
+
+            /* name user and photo */
+            &__name{
+                width: 100%;
+                order: 1;
+
+                .avatar{
+                    width: 100%;
+                    height: auto;
+                }
+                .name{
+                    width: 50%;
+                    margin: 6px;
+                    display: flex;
+
+                    &__text{
+                        display: block;
+                        margin: 0 3px;
+                        text-align: center;
+                        font-size: 2rem;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        /* posts on the user's wall */
+        .news{
+
+            &__block{
+            }
+
+            &__textarea{
+            }
+
+            &__post{
+
+                .post{
+                    padding: 5px;
+                    border-right: 2px solid #2a2f33;
+                    box-shadow: 0 3px 3px #575555 inset;
+
+                    &__date{
+                        width: 90px;
+                        text-align: center;
+                        display: block;
+                        margin-left: 75%;
+                        color: #000;
+                        font-weight: 800;
+                    }
+                    &__text{
+                    }
+                }
+            }
+
+            .buttons {
+                @include buttons(30%, 35px, 12px);
+            }
+        }
+    }
+}

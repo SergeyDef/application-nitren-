@@ -1,0 +1,104 @@
+//colors
+$mainTextColor: #fff;
+$secondTextColor: #000;
+$mainBackgroundColor: #181818;
+$sliderArrowColor:#3C3C3C;
+$placeholderInput: #7D7D7D;
+$backgroundInput: #F5F5F5;
+$backgroundPurchaseWindow:#F4F4F4;
+$errorColors: #ff3033;
+
+$grayColors: (
+  100: #6f6f6f,
+  200: #626262,
+  300: #565656,
+  400: #494949,
+  500: #3C3C3C,
+  600: #2f2f2f,
+  700: #222222,
+  800: #161616,
+  900: #090909,
+);
+
+$blueColors: (
+  100: #6049ef,
+  200: #533ce2,
+  300: #4730d6,
+  400: #3a23c9,
+  500: #2D16BC,
+  600: #2009af,
+  700: #1300a2,
+  800: #070096,
+  900: #000089,
+);
+
+$lightBlueColors: (
+  100: #4a79f4,
+  200: #3d6ce7,
+  300: #3160db,
+  400: #2453ce,
+  500: #1746C1,
+  600: #0a39b4,
+  700: #002ca7,
+  800: #00209b,
+  900: #00138e,
+);
+
+$purpleColors: (
+  100: #964398,
+  200: #89368b,
+  300: #7d2a7f,
+  400: #701d72,
+  500: #631065,
+  600: #560358,
+  700: #49004b,
+  800: #3d003f,
+  900: #300032,
+);
+
+$buttonColors:(
+  mainButton: (
+    normal: #3C3C3C,
+    hover: #2f2f2f,
+    active: #3C3C3C,
+  ),
+  secondButton: (
+    normal: linear-gradient(156.92deg, #631065 10.79%, #2D16BC 79.22%, #1746C1 100%),
+    hover: linear-gradient(156.92deg, #560358 10.79%, #2009af 79.22%, #0a39b4 100%),
+    active: linear-gradient(156.92deg, #631065 10.79%, #2D16BC 79.22%, #1746C1 100%),
+  ),
+);
+
+$overlayHeader: linear-gradient(
+  118.65deg, 
+  rgba(99, 16, 101, 0.5) 10.79%, 
+  rgba(45, 22, 188, 0.44) 49.46%, 
+  rgba(23, 70, 193, 0.5) 84.31%
+);
+
+$overlayContactUs: linear-gradient(
+  120.79deg, 
+  rgba(99, 16, 101, 0.6) 10.79%, 
+  rgba(45, 22, 188, 0.528) 49.46%, 
+  rgba(23, 70, 193, 0.6) 84.31%
+);
+
+@function grayColor($key) {
+  @return map-get($map: $grayColors, $key: $key);
+}
+
+@function blueColor($key) {
+  @return map-get($map: $blueColors, $key: $key);
+}
+
+@function purpleColor($key) {
+  @return map-get($map: $purpleColors, $key: $key);
+}
+
+@function mainButtonColor($key:normal) {
+  @return map-get($map: map-get($map: $buttonColors, $key: mainButton), $key: $key);
+}
+
+@function secondButtonColor($key:normal) {
+  @return map-get($map: map-get($map: $buttonColors, $key: secondButton), $key: $key);
+}

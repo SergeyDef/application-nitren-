@@ -1,36 +1,36 @@
 import React from 'react';
-import s from './UserInformation.module.css';
+import s from '../userProfile.module.scss';
 
 	const UserInformation = (props) =>{
     return(
         <div className={s.information}>
-          <div className={s.information_block}>
-           <div className={s.information_block_record}>
-            <span>Статус: </span>
-            <span>{props.status}</span>
+          <div className={s.information__block}>
+           <div className={s.information__block__record}>
+            <span className={s.information__title}>Статус: </span>
+            <span className={s.information__user}>{props.status}</span>
            </div>
-           <div className={s.information_block_record}>
-            <span>Возраст: </span>
-            <span>props.age</span>
+           <div className={s.information__block__record}>
+            <span className={s.information__title}>Возраст: </span>
+            <span className={s.information__user}>props.age</span>
            </div>
-           <div className={s.information_block_record}>
-            <span>Деятельность: </span>
-            <span>props.activity</span>
+           <div className={s.information__block__record}>
+            <span className={s.information__title}>Деятельность: </span>
+            <span className={s.information__user}>props.activity</span>
            </div>
           </div>
 
-          <div className={s.information_block}>
-            <div className={s.information_block_record}>
-              <span>Подписки: </span>
-              <span>props.subscriptions</span>
+          <div className={s.information__block}>
+            <div className={s.information__block__record}>
+              <span className={s.information__title}>Подписки: </span>
+              <span className={s.information__user}>props.subscriptions</span>
             </div>
-            <div className={s.information_block_record}>
-              <span>Фото: </span>
-              <span>props.photo</span>
+            <div className={s.information__block__record}>
+              <span className={s.information__title}>Фото: </span>
+              <span className={s.information__user}>props.photo</span>
             </div>
-            <div className={s.information_block_record}>
-             <span>Город: </span>
-              <span>{props.town}</span>
+            <div className={s.information__block__record}>
+             <span className={s.information__title}>Город: </span>
+              <span className={s.information__user}>{props.town}</span>
             </div>
           </div>
         </div>

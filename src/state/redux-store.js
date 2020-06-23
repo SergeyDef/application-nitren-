@@ -1,7 +1,8 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import userPostReducer from './userProfileReducer';
 import dialogsReducer from './dialogsReducer';
-import protoPostReducer from './protoPostReducer';
+import photoUserReducer from './photoUserReducer';
+import photoPostReducer from './photoPostReducer';
 import libraryReducer from './libraryReducer';
 import subscribersReducer from './subscribersReducer';
 import authReducer from './authReducer';
@@ -11,7 +12,8 @@ import { reducer as formReducer} from 'redux-form';
 let reducers = combineReducers({
   userProfile: userPostReducer,
   dialogs: dialogsReducer,
-  photoPost: protoPostReducer,
+  photoUser: photoUserReducer,
+  photoPost: photoPostReducer,
   library: libraryReducer,
   subscribers: subscribersReducer,
   auth: authReducer,

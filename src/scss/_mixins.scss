@@ -1,0 +1,44 @@
+@mixin buttons($width, $height, $font){
+    width: $width;
+    height: $height;
+    font-size: $font;
+    font-weight: 600;
+    border-radius: .35714rem;
+    border-color: #24baef;
+    color: #ffffff;
+    margin: 0 2%;
+    background-color: #24baef;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+}
+
+@mixin textareas($width, $height, $font){
+	width: $width;
+    height: $height;
+    font-size: $font;
+    border: 1px solid #000;
+    border-radius: .35714rem;
+    resize: none;
+    color: #000;
+    background-color: #fff;
+    outline: none;
+    padding: 5px;
+}
+
+@mixin inputs($width, $height){
+	width: $width;
+	height: $height;
+	outline: none;
+	margin: auto;
+	display: block;
+	border-radius: 3px;
+}
+
+@mixin headers($width, $fontSize){
+	font-size: $fontSize;
+	width: $width;
+	color: #DC4A20;
+  	margin: auto;
+  	text-align: center;
+}

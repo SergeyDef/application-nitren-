@@ -1,0 +1,121 @@
+@import "../../scss/_mixins.scss";
+
+button:active, button:focus {
+  outline: none;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+.subscribers__block{
+  border-color: #F0EFF4;
+}
+.subscribers{
+	display: flex;
+	width: 90%;
+	margin: 2% auto;
+	background-color: #F4E2E4;
+	border-radius: 5px;
+
+	&__ava{
+		width: 15%;
+		margin: 10px;
+	}
+
+	&__img{
+		width: 100%;
+		height: 120px;
+		margin: auto;
+	}
+	.info{
+		display: flex;
+		flex-direction: column;
+		width: 80%;
+
+		&__indicator{
+			text-align: right;
+		}
+
+		&__name{
+			font-size: 1.5rem;
+			color: #00005c;
+			font-weight: bold;
+			width: 90%;
+			margin: 0 auto;
+		}
+	}
+	.subscribe{
+		width: 35%;
+
+		.subscribe__button {
+			@include buttons(150px, 45px, 17px);
+			margin: auto;
+		}
+	}
+}
+
+
+.switch_block{
+	display: flex;
+}
+.switchs{
+	background-color: #eaeaea;
+	border: solid 1px #000000;
+	padding: 5px 8px;
+	cursor: pointer;
+	display: block;
+	width: 20px;
+	text-align: center;
+}
+.switchs:hover{
+	background-color: #eaeaaa;
+}
+.this_switch{
+	font-weight: bold;
+	background-color: #aaaaaa;
+	border: solid 1px #000000;
+	padding: 5px 8px;
+	cursor: pointer;
+	text-align: center;
+	display: block;
+	width: 20px;
+}
+.IsFetching{
+	height: 100%;
+    width: 70%;
+    position: fixed;
+    display: flex;
+    z-index: 1;
+	background-color: rgba(0,0,0,0.4);
+}
+.IsFetching_img{
+	margin: auto;
+	display: block;
+	width: 30%;
+}
+.selectorPage{
+	display: flex;
+	width: 120px;
+}
+.page_point{
+	border: 2px solid #000000;
+	background-color: #eaeaea;
+	display: block;
+	width: 8px;
+	height: 8px;
+	border-radius: 10px;
+	margin: auto;
+}
+.page_button{
+	width: 40px;
+	padding: 5px 8px;
+	background-color: #eaeaea;
+    border: solid 1px #000000;
+    cursor: pointer;
+}
+.page_button:hover{
+	background-color: #eaeaaa;
+}
+.arrow{
+	width: 100%;
+	height: auto;
+}

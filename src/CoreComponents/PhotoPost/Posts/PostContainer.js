@@ -1,8 +1,7 @@
 import React from 'react';
 import Post from './Post';
 import {connect} from 'react-redux';
-
-import s from './posts.module.css';
+import s from '../photoPost.module.scss';
 
 let mapStateToProps = (state) =>{
 	return {

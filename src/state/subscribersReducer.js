@@ -8,6 +8,7 @@ const TOGGOLE_IS_FETCHING = 'TOGGOLE-IS-FETCHING';
 const TOTAL_USERS_COUNT = 'TOTAL-USERS-COUNT';
 const ADD_PAGES = 'ADD-PAGES';
 const REDUCE_PAGES = 'REDUCE-PAGES';
+const PAGES_IN_CURRENT_LEFT = 'PAGES-IN-CURRENT-LEFT';
 
 let subscribers = {
 	 myFriendsData:[],
@@ -57,11 +58,21 @@ const subscribersReducer = (state=subscribers, action) =>{
 		{
 			return { ...state, totalUsersCounts: action.totalCount }
 		}
+		// 	let copy = {...state};
+		// 	copy.totalUsersCounts = action.totalCount;
+		// 	copy.totalUsersCounts > 10 ? 
+		// 	copy.pagesRight = 10 :
+		// 	copy.pagesRight = action.totalCount;
+		// return copy
 		case ADD_PAGES:
 		let stateCopy = {...state};
             stateCopy.pagesLeft = action.pageLeft;
             stateCopy.pagesRight = action.pageRight;
 		return stateCopy
+		// case PAGES_IN_CURRENT_LEFT:
+		// {
+		// 	return {...state, currentPage: action.pageNumber }
+		// }
 		default:
 		return state;
 	}	
@@ -89,7 +100,9 @@ export const totalUsersCount = (totalCount) =>({
 export const addPages = (pageLeft, pageRight) => ({
 	type: ADD_PAGES, pageLeft, pageRight
 });
-
+// export const pagesInCurrentLeft = (pageNumber) => ({
+// 	type: PAGES_IN_CURRENT_LEFT, pageNumber
+// });
 export const getSubscribersCreator = (currentPage, pageSize) =>{
 	return (dispatch) =>{
 

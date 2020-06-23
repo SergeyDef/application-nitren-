@@ -1,0 +1,96 @@
+@import "../../scss/_mixins.scss";
+
+/* Futer */
+
+.sending {
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+
+    &__window {
+        @include textareas(85%, 30px, 17px);
+        border-radius: .35714rem 0 0 .35714rem;
+        border-right: none; 
+    }
+
+    &__button {
+        @include buttons(15%, 45px, 17px);
+        border-radius: 0 .35714rem .35714rem 0;
+        margin: 0;
+    }
+}
+
+.Post{
+  grid-area: p;
+  background-color: #f5f5f5;
+}
+.pic{
+    width: 35%;
+    margin: auto;
+}
+.pic img{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.letter{
+    display: flex;
+    margin: 30px 0;
+    background-color: #f5f5f5;
+    border: 1px solid #332556;
+
+    &__user{
+        display: flex;
+        width: 10%;
+        flex-direction: column;
+        background-color: #131722;
+        border: 1px solid #332556;
+
+        .ava{
+            width: 100%;
+            margin: 1%;
+
+            &__img{
+                width: 90px;
+                height: 90px;
+                display: block;
+                margin: auto;
+            }
+        }
+
+        .name{
+            width: 100%;
+            padding: 5px;
+            
+            &__text{
+                color: #b5b9c3;
+                display: block;
+                font-size: 0.9rem;
+                font-weight: 800;
+                text-align: center;
+            }
+        }
+    }
+
+    &__message{
+        width: 86%;
+        margin: 0 2%;
+        color: #393939;
+        background-color: #fff;
+    }
+
+    &__message__text{
+        display: block;
+        width: 96%;
+        margin: 2%;
+    }
+}
+
+
+
+
+
+
+/*#131722 цвет фона Ещё #2F4E49 #332556 576*/

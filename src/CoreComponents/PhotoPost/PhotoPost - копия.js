@@ -3,8 +3,6 @@ import SendingFormContainer from './SendingForm/SendingFormContainer';
 import PostContainer from './Posts/PostContainer';
 import s from './photoPost.module.scss';
 
-
-
 const Pic = (props) =>{
   
   return (

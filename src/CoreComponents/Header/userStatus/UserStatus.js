@@ -1,5 +1,5 @@
 import React from 'react';
-import s from '../Header.module.css';
+import s from '../Header.module.scss';
 import picchu from '../../../assec/img/picchu.svg';
 
 class UserStatus extends React.Component{
@@ -19,12 +19,12 @@ class UserStatus extends React.Component{
   render(){
     return (
       <div className={s.status}>
-        <div className={s.picchu_status_block}>
-          <img src={picchu} className={s.picchu_status_img} alt="picchu" />
+        <div className={s.status__picchu__block}>
+          <img src={picchu} className={s.status__picchu} alt="picchu" />
         </div>
         { !this.state.aditMode &&
-          <div className={s.status_text_block}>
-            <span onDoubleClick={this.activeEditMode.bind(this)} className={s.status_text}>{this.props.status}</span>
+          <div className={s.status__text__block}>
+            <span onDoubleClick={this.activeEditMode.bind(this)} className={s.status__text}>{this.props.status}</span>
           </div>
         }
         { this.state.aditMode &&

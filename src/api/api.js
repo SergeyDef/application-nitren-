@@ -16,6 +16,10 @@ export const grtBooks = () =>{
 	return axios.get("https://raw.githubusercontent.com/SergeyDef/nitrenJSON-/master/books.json")
 }
 
+export const getPhoto = () =>{
+	return axios.get('https://raw.githubusercontent.com/SergeyDef/nitrenJSON-/master/userPhotos.json')
+ }
+
 export const authAPI = {
 	me () {
 		return instance.get(`auth/me`);
@@ -27,15 +31,5 @@ export const authAPI = {
 		return  instance.delete(`auth/login`);
 	},
 }
-// export const grtLogin = () =>{
-// 	return  instance.get("auth/me");
-// }
 
-// export const login = (email, password, rememberMy = false) => {
-// 	return  instance.post("auth/me", {email, password, rememberMy});
-// }
-// export const logout = () => {
-// 	return  instance.delete("auth/me");
-// }
 
- 

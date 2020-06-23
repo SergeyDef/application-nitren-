@@ -1,6 +1,6 @@
 import React from 'react';
-import s from './SendingForm.module.css';
-import {newCommentsPhotoCreator, addCommentsPhotoCreator} from '../../../state/protoPostReducer';
+import s from '../photoPost.module.scss';
+import {newCommentsPhotoCreator, addCommentsPhotoCreator} from '../../../state/photoPostReducer';
 import SendingForm from './SendingForm';
 import {connect} from 'react-redux';
 

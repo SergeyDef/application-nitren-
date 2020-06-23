@@ -1,10 +1,10 @@
 import React from 'react';
-import s from './Futer.module.css';
+import s from './futer.module.scss';
 
 const Futer = () =>{
   
   return (
-      <div className={s.Futer}>
+      <div className={s.futer}>
                            
       </div>
     );

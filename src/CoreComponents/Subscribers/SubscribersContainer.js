@@ -6,7 +6,7 @@ import {inFriend,
 		getSubscribersCreator} from '../../state/subscribersReducer';
 import Subscribers from './Subscribers';
 import preloader from '../../assec/img/preloader.svg';
-import s from './subscribers.module.css';
+import s from './subscribers.module.scss';
 import {grtUsers} from '../../api/api';
 
 class SubscribersAPI extends React.Component {

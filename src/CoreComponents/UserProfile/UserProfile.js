@@ -1,11 +1,28 @@
 import React from 'react';
 import NewsUserContainer from './NewsUser/NewsUserContainer';
-import UserNama from './UserNama/UserNama';
 import UserFriendContainer from './UserFriend/UserFriendContainer';
-import UserAvatar from './UserAvatar/UserAvatar';
 import UserInformation from './UserInformation/UserInformation';
-import s from './UserProfile.module.css';
+import s from './userProfile.module.scss';
 import UserProfileContainer from './UserProfileContainer';
+
+
+const UserAvatar = (props) =>{
+  return (
+    <div className={s.avatar} id={props.id}>
+      <img src={props.avatarSrc} alt="avatar" className={s.avatar__img}/>
+    </div>
+    );
+}
+
+const UserNama = (props) =>{
+  
+  return (
+    <div className={s.name} id={props.id} >
+        <span className={s.name__text}>{props.nameName}</span>
+        <span className={s.name__text}>{props.nameSurname}</span>
+    </div>
+    );
+}
 
 const UserProfile = (props) =>{
 
@@ -27,13 +44,13 @@ const UserProfile = (props) =>{
   town={d.town} />));
 
   return (
-  <div className={s.user_Profile}>
-    <div className={s.user_page}>
-      <div>
+  <div className={s.user}>
+    <div className={s.info}>
+      <div className={s.info__detailed}>
         <UserFriendContainer />
         {userData}
       </div>
-      <div className={s.user}>
+      <div className={s.info__name}>
       	{nameDete}
       	{avatarDete}
       </div>

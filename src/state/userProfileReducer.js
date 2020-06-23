@@ -1,6 +1,7 @@
 const AAD_USER_POST = 'AAD-USER-POST';
 const NAW_POST_TEXT = 'NAW-POST-TEXT';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
+const GET_USER_FRIENDS = 'GET_USER_FRIENDS';
 
 let initialState = {
   name: [
@@ -14,7 +15,7 @@ let initialState = {
         {id:2, friendName:'Lenka', avatarSrcFriend:"https://yt3.ggpht.com/a/AGF-l78G1OYVfx10MRsHr3tzTjQ_FFMM6nt_cjiZzQ=s900-c-k-c0xffffffff-no-rj-mo"},
         {id:3, friendName:'Катя', avatarSrcFriend:"https://i.pinimg.com/originals/8a/ec/c4/8aecc4b99cf3f2cf1ddd0052f934a527.jpg"},
         {id:4, friendName:'Алексей', avatarSrcFriend:"https://img3.badfon.ru/wallpaper/big/3/2d/devushka-lico-elf-vzglyad-7450.jpg"},
-        {id:5, friendName:'Ленка', avatarSrcFriend:"https://i.pinimg.com/originals/45/34/8c/45348c6e37956ee991a3ebd845e4d762.jpg"}
+        {id:5, friendName:'Ленка', avatarSrcFriend:"https://i.pinimg.com/originals/45/34/8c/45348c6e37956ee991a3ebd845e4d762.jpg"},
   ],
   userData: [
       { status:"Тёмный эльф", age:"30", activity:"Разработка этого сайта", subscriptions:21, photo:5, town:"Москва" }
